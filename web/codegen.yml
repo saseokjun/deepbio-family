@@ -1,0 +1,6 @@
+schema: 'http://localhost:5000/graphql'
+overwrite: true
+generates:
+  ./src/apollo/fragmentTypes.ts:
+    plugins:
+      - fragment-matcher
