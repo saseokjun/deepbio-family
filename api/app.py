@@ -10,9 +10,9 @@ from flask_migrate import Migrate
 from flask_bcrypt import Bcrypt
 from flask_restful import Resource, Api
 from models import (
-    db, User, Access, Holiday, Meal, Restaurant
+    db, User
 )
-from schema import UserObject, AccessObject, HolidayObject, MealObject, RestaurantObject
+from schema import UserObject
 from config import BaseConfig
 from utils import get_ip_address
 from graphene import (ObjectType, Mutation, List, Field,
