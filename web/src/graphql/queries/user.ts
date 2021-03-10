@@ -7,6 +7,10 @@ export const USERS = gql`
       email
       name
       level
+      annual
+      alternative
+      enterDate
+      isJoin
     }
   }
 `
@@ -22,6 +26,10 @@ export const USER = gql`
       email
       name
       level
+      annual
+      alternative
+      enterDate
+      isJoin
     }
   }
 `
@@ -33,6 +41,10 @@ export const ME = gql`
       email
       name
       level
+      annual
+      alternative
+      enterDate
+      isJoin
     }
   }
 `

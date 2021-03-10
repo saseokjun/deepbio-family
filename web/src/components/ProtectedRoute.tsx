@@ -2,7 +2,7 @@ import React from 'react'
 import { Redirect, Route, RouteProps } from 'react-router'
 import { JWT } from '../apollo/config'
 
-export const ProtectedRoute: React.SFC<RouteProps> = (props) => {
+export const ProtectedRoute: React.FC<RouteProps> = (props) => {
   if (
     localStorage.getItem(JWT.LOCAL_STORAGE.TOKEN.NAME) &&
     localStorage.getItem(JWT.LOCAL_STORAGE.REFRESH_TOKEN.NAME)
