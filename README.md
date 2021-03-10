@@ -1,6 +1,6 @@
-# Flask Graphql Boilerplate
+# Deepbio-family
 
-This boilerplate based on python3, flask, react, graphql, apollo and axios.
+This project based on python3, flask, react, graphql, apollo and axios.
 
 ## Usage
 
