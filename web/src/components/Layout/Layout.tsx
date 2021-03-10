@@ -24,7 +24,6 @@ const useStyles = makeStyles(() =>
     header: {
       width: '100%',
       height: '50px',
-      // backgroundColor: 'rgba(104,212,63,0.6)',
       borderBottom: '1px solid #eeeeee',
       display: 'flex',
       flexDirection: 'row',
@@ -105,14 +104,14 @@ export const Layout: React.FC<Props> = ({ content }) => {
   const [isDropdown, setIsDropdown] = useState<boolean>(false)
   const anchorRef = useRef<HTMLButtonElement>(null)
   const classes = useStyles()
-  const { data: userData } = useQuery<MeResponse>(ME)
+  const { data: meData } = useQuery<MeResponse>(ME)
   const { data: localUserData, client } = useQuery<LocalUserInterface>(GET_LOCAL_USER)
   const [changePassword] = useMutation<UserChangePasswordPayload>(USER_CHANGE_PASSWORD, { variables: changePasswordState })
   const [setLocalState] = useMutation<SnackbarInterface>(SET_LOCAL_STATE)
 
   useEffect(() => {
-    if (userData) {
-      const { me } = userData
+    if (meData) {
+      const { me } = meData
       const cachedUser = client.readQuery({
         query: GET_LOCAL_USER
       })
@@ -121,7 +120,7 @@ export const Layout: React.FC<Props> = ({ content }) => {
         client.writeData({ data: { user: currentUser } })
       }
     }
-  }, [userData])
+  }, [meData])
 
   const prevOpen = React.useRef(isDropdown)
   useEffect(() => {
@@ -177,15 +176,17 @@ export const Layout: React.FC<Props> = ({ content }) => {
   }
 
   const onClickLogout = () => {
-    client.writeData({ data: LocalUserInitialState })
-    localStorage.clear()
-    history.push('/login')
+    (async function () {
+      await client.writeData({ data: LocalUserInitialState })
+      await localStorage.clear()
+      await history.push('/login')
+    })()
   }
 
   return <React.Fragment>
     <Grid container className={classes.container}>
       <Grid item className={classes.header}>
-        <Link to='/'><img src='logo.png' /></Link>
+        <Link to='/'><img src='static/image/logo.png' /></Link>
         <React.Fragment>
           <Button
             ref={anchorRef}

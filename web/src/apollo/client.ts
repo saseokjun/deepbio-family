@@ -1,18 +1,30 @@
 import { ApolloClient } from 'apollo-client'
-import { InMemoryCache } from 'apollo-cache-inmemory'
+import { InMemoryCache, IntrospectionFragmentMatcher } from 'apollo-cache-inmemory'
+import introspectionResult from './fragmentTypes'
 import { HttpLink } from 'apollo-link-http'
 import { setContext } from 'apollo-link-context'
 import { ApolloLink } from 'apollo-link'
 import { onError } from 'apollo-link-error'
 import { JWT, GRAPHQL_ENDPOINT } from './config'
-import { LocalUserInitialState, LocalInitialState, SetLocalState } from './store'
+import { GET_LOCAL_USER, LocalUserInitialState, LocalInitialState, SetLocalState } from './store'
 
 import { history } from '../helpers'
 import decode from 'jwt-decode'
 
+// const fragmentMatcher = new IntrospectionFragmentMatcher({
+//   // introspectionQueryResultData: introspectionResult
+//   introspectionQueryResultData: {
+//     __schema: {
+//       types: []
+//     }
+//   }
+// })
+
 const cache = new InMemoryCache({
+  // dataIdFromObject: e => `${e.__typename}_${e.id}` || null,
   freezeResults: true,
   addTypename: false,
+  // fragmentMatcher
 })
 
 const initialState = {
@@ -24,6 +36,8 @@ cache.writeData({ data: initialState })
 
 const opts = {
   credentials: 'include',
+  // headers: {
+  // }
 }
 
 const httpLink = new HttpLink({

@@ -27,6 +27,7 @@
     "apollo-link-error": "^1.1.13",
     "apollo-link-http": "^1.5.17",
     "axios": "^0.21.1",
+    "caniuse-lite": "^1.0.30001198",
     "date-fns": "^2.12.0",
     "dotenv": "^8.2.0",
     "graphql": "^14.6.0",
@@ -44,7 +45,7 @@
   },
   "scripts": {
     "start": "NODE_PATH=src/ react-scripts start .env",
-    "build": "react-scripts build",
+    "build": "react-scripts build && mkdir -p ../api/static/assets && cp build/index.html ../api/templates/ && cp -r build/static/* ../api/static/ && cp build/favicon.ico ../api/static/assets/ && cp build/*.json ../api/static/assets/ && cp -r build/image ../api/static",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "gen-graphql": "graphql-codegen --config codegen.yml"

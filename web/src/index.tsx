@@ -4,7 +4,9 @@ import { App } from './App'
 
 import { ApolloProvider } from '@apollo/react-hooks'
 import { client } from './apollo/client'
+import dotenv from 'dotenv'
 import './index.css'
+dotenv.config()
 
 
 ReactDOM.render(

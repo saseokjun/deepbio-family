@@ -13,7 +13,7 @@ export const LoginContainer: React.FC<Props> = () => {
     email: '',
     password: ''
   })
-  const [login, { loading, error, data }] = useMutation<LoginPayload>(USER_LOGIN, {
+  const [login, { data }] = useMutation<LoginPayload>(USER_LOGIN, {
     variables: loginState
   })
   const [setLocalState] = useMutation<SnackbarInterface>(SET_LOCAL_STATE)

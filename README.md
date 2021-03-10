@@ -1,13 +1,13 @@
-# Flask Graphql Boilerplate
+# Deepbio-family
 
-This boilerplate based on python3, flask, react, graphql, apollo and axios.
+This project based on python3, flask, react, graphql, apollo and axios.
 
 ## Usage
 
 ### 1. git clone
 
 ```
-$ git clone https://github.com/saseokjun/flask-graphql-boilerplate.git
+$ git clone https://github.com/saseokjun/deepbio-family.git
 ```
 
 ### 2-1. backend server initialize and run

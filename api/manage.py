@@ -11,7 +11,7 @@ def create_database():
     with db.create_engine(database_uri_without_db_name, {}).connect() as conn:
         conn.execution_options(
             isolation_level='AUTOCOMMIT'
-        ).execute('create database {0} owner {1}'.format(DB_NAME, DB_USER))
+        ).execute('create database family owner postgres')
 
 
 try:

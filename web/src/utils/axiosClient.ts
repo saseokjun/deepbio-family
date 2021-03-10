@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios'
 
-const baseURL = `http://localhost:5000`
+const baseURL = `http://192.168.0.181:5000`
 const baseConfig: AxiosRequestConfig = {
   timeout: 20000,
   withCredentials: true

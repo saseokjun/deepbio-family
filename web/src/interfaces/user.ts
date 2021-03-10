@@ -3,6 +3,10 @@ export interface UserType {
   email: string,
   name: string,
   level: number,
+  annual: number,
+  alternative: number,
+  enterDate: string,
+  isJoin: boolean
 }
 
 export interface LoginPayload {
@@ -42,4 +46,13 @@ export interface UserCreatePayload {
 
 export interface UserPayload {
   userId: number
+}
+
+export interface UserUpdatePayload {
+  userId: number,
+  annual: number,
+  alternative: number,
+  enterDate: string,
+  isJoin: boolean,
+  level: number
 }

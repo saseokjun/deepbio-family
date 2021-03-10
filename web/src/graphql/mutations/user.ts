@@ -16,6 +16,10 @@ export const USER_LOGIN = gql`
         email
         name
         level
+        annual
+        alternative
+        enterDate
+        isJoin
       }
     }
 }`
@@ -45,6 +49,43 @@ export const USER_CREATE = gql`
     userCreate(
       name: $name,
       email: $email,
+      slackId: $slackId,
+    ){
+      user{
+        id
+      }
+    }
+  }
+`
+
+export const USER_RESET_PASSWORD = gql`
+  mutation userResetPassword(
+    $userId: Int!
+  ){
+    userResetPassword(
+      userId: $userId
+    ){
+      response
+    }
+  }
+`
+
+export const USER_UPDATE = gql`
+  mutation userUpdate(
+    $userId: Int!,
+    $annual: Float,
+    $alternative: Float,
+    $enterDate: Date,
+    $isJoin: Boolean,
+    $level: Int
+  ){
+    userUpdate(
+      userId: $userId,
+      annual: $annual,
+      alternative: $alternative,
+      enterDate: $enterDate,
+      isJoin: $isJoin,
+      level: $level,
     ){
       user{
         id

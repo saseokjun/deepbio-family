@@ -4,8 +4,8 @@ import { GET_LOCAL_STATE, LocalStateInterface } from './apollo/store/base'
 import { Snackbar } from '@material-ui/core'
 import { Alert } from '@material-ui/lab'
 import { Router, Route, Switch } from 'react-router-dom'
-import { LoginContainer, MainPageContainer } from './containers'
-import { ProtectedRoute } from './components'
+import { AccessContainer, HolidayContainer, LoginContainer, MealContainer, RegisterContainer, AccountContainer } from './containers'
+import { ProtectedRoute, AdminPageRoute } from './components'
 import { history } from './helpers'
 import './App.css'
 
@@ -28,7 +28,11 @@ export const App: React.FC = () => {
     <React.Fragment>
       <Router history={history}>
         <Switch>
-          <ProtectedRoute exact path='/' component={MainPageContainer} />
+          <ProtectedRoute exact path='/' component={AccessContainer} />
+          <ProtectedRoute exact path='/holiday' component={HolidayContainer} />
+          <ProtectedRoute exact path='/meal' component={MealContainer} />
+          <AdminPageRoute exact path='/register' component={RegisterContainer} />
+          <AdminPageRoute exact path='/account' component={AccountContainer} />
           <Route path='/login' component={LoginContainer} />
         </Switch>
       </Router>

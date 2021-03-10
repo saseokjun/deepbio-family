@@ -1,4 +1,4 @@
-export const GRAPHQL_ENDPOINT = `http://localhost:5000/graphql`
+export const GRAPHQL_ENDPOINT = `http://192.168.0.151:5005/graphql`
 export const JWT = {
   HEADER: {
     TOKEN: {
