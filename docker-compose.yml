@@ -12,7 +12,7 @@ services:
     ports:
       - "5432:5432"
   app:
-    image: deepbio-family:latest
+    image: family:latest
     ports:
       - 5000:5000
     volumes:
